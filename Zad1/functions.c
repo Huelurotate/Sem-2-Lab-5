@@ -166,7 +166,7 @@ void find_shared_elements(Node* stack1, Node* stack2)
 	{
 		while (temp_stack_2 != NULL)
 		{
-			if (temp_stack_2->data == temp_stack_1->data)
+			if ((temp_stack_2->data == temp_stack_1->data) && !in_result_stack(result_stack, temp_stack_2->data))
 				push(&result_stack, temp_stack_2->data);
 
 			temp_stack_2 = temp_stack_2->next;
@@ -184,17 +184,15 @@ void find_shared_elements(Node* stack1, Node* stack2)
 	else puts("\nStacks do not share any values.");
 }
 
-// !in_result_stack(result_stack, temp_stack_2->data))
+int in_result_stack(Node* result_stack, int element)
+{
+	Node* temp = result_stack;
+	while (temp != NULL)
+	{
+		if (temp->data == element)
+			return 1;
+		temp = temp->next;
+	}
 
-//int in_result_stack(Node* result_stack, int element)
-//{
-//	Node* temp = result_stack;
-//	while (temp != NULL)
-//	{
-//		if (temp->data == element)
-//			return 1;
-//		temp = temp->next;
-//	}
-//
-//	return 0;
-//}
+	return 0;
+}

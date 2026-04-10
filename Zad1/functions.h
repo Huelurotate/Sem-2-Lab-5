@@ -26,4 +26,4 @@ void display_stack(Node* top, int stack_number);
 
 // FIND
 void find_shared_elements(Node* stack1, Node* stack2);
-// int in_result_stack(Node* result_stack, int element);
+int in_result_stack(Node* result_stack, int element);
